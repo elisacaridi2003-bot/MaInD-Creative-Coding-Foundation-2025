@@ -1,0 +1,15 @@
+img {
+    width: 200px;
+}
+
+ul {
+    list-style: none;
+}
+
+.on-sale{
+    background-color: yellow;
+}
+
+#best-one {
+    background-color: red;
+}
