@@ -12,7 +12,7 @@ Starting from the concept of a pinboard, implement a web page that:
 <img src="Assignments/Assignment - 01/asset/Grid View.png" width="500">
 
 ### List View
-<img src="Assignments/Assignment - 01/List View.png" width="500">
+<img src="Assignments/Assignment - 01/asset/List View.png" width="500">
 
 ### Project Description
 My project is a bulletin board where you write post-it notes or reminders. You can choose between three post-it sizes: small, medium and large, you can choose the color. The text inside is formatted according to the choice of version. You can put and remove post-it notes and decide to change from a grid view or a list view.
