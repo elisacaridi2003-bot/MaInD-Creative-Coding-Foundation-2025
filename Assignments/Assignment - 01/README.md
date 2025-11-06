@@ -9,7 +9,7 @@ Starting from the concept of a pinboard, implement a web page that:
 
 ## Screenshot
 ### Grid View
-<img src="/Users/elisacaridi/Documents/GitHub/MaInD-Creative-Coding-Foundation-2025/Assignments/Assignment - 01/screenshot/Grid Vew.png" width="500">
+<img src="Assignments/Assignment - 01/List View.png" width="500">
 
 ### List View
 <img src="/Users/elisacaridi/Documents/GitHub/MaInD-Creative-Coding-Foundation-2025/Assignments/Assignment - 01/screenshot/List View.png" width="500">
