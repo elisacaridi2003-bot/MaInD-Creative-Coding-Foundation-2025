@@ -9,7 +9,7 @@ Starting from the concept of a pinboard, implement a web page that:
 
 ## Screenshot
 ### Grid View
-<img src="Assignments/Assignment - 01/asset/Grid View.png" width="500">
+<img src="Assignments/Assignment - 01/Grid View.png" width="500">
 
 ### List View
 <img src="Assignments/Assignment - 01/asset/List View.png" width="500">
