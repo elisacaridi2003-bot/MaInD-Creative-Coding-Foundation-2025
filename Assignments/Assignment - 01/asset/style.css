@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f3f3f3;
+}
+
+header{
+    background: #222;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.controls {
+    margin-top: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+button, select, input [type="color"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+#sizePicker {
+    margin-bottom: 1rem;
+}
+
+/*MAIN AREA*/
+#board {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+}
+
+/*Grid View*/
+.grid-view {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: flex-start;
+   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+/*List View*/
+.list-view {
+    width: 100%;
+}
+
+.list-view .note {
+    width: 100% !important;
+    max-width: none !important;
+    grid-column: span 1 !important;
+}
+
+/*Notes*/
+.note {
+    display: block;
+    flex-wrap: wrap;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    position: relative;
+    transition: transform 0.2s;
+    word-wrap: break-word;
+    min-height: 100px;
+    min-width: 150px;
+}
+
+.note:hover{
+    transform: scale(1.03);
+}
+
+/*text inside the notes*/
+.note[contenteditable="true"]{
+    outline: 2px dashed #666;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*Remove button*/
+.note button {
+    position: absolute;
+    margin-left: 10px;
+    top: 5px;
+    right: 5px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    font-weight: 900;
+    height: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+    }
+
+/*Sizes*/
+.small { 
+    font-size: 12px;
+    padding: 8px;
+    grid-column: span 1;
+    height: 80px;
+  }
+  
+  .medium { 
+    font-size: 16px;
+    padding: 12px;
+    grid-column: span 2;
+    height: 130px;
+  }
+  
+  .large { 
+    font-size: 20px;
+    padding: 16px;
+    grid-column: span 3;
+    height: 180px;
+  }
+
+/*Responsive*/
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+}
+
+.controls {
+    flex-direction: column;
+    align-items:center;
+}

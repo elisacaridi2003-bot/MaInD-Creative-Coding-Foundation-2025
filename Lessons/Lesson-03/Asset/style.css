@@ -1,0 +1,145 @@
+/* general rules*/
+
+html {
+    font-size: 24px;
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+h1{
+    text-align: center;
+}
+
+input, button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    outline: none
+}
+
+button {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+/* input and add button */
+
+#add-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#task-input {
+    width: 100%;
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+/* view list mode toggle */
+
+#view-toggle-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.toggle-btn {
+    background-color: whitesmoke;
+    width: 50%;
+}
+
+/* to-do-list */
+
+/* card-view */
+
+.card-view {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    gap: 1rem
+}
+
+
+.card-view li{
+    display: block;
+    width: 100%;
+    background-color: orange;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* list-view */
+
+.list-view {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem 1rem 1rem 2rem;
+    background-color: orange;
+}
+
+.list-view li{
+    height: 2rem;
+    display: list-item;
+}
+
+/* buttons */
+
+
+/* general button roules */
+
+button:hover {
+    cursor: pointer;
+}
+
+.toggle-btn:hover{
+    background-color: royalblue;
+
+}
+
+.toggle-btn:active{
+    background-color: mediumblue;
+    color: white;
+}
+
+#add-btn:hover{
+    background-color: darkorange;
+}
+
+#add-btn:active{
+    background-color: orangered;
+    color: white;
+}
+
+/* responsive layout*/
+
+@media only screen and (min-width: 600px) {
+    .card-view li {
+        width: calc((100% - 1rem) / 2); /* because the .card-view is flex with 1rem gap, the width calculation has to take into consideration the gaps too */
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (min-width: 900px){
+
+    html{
+        font-size: 18px;
+    }
+
+    h1 {
+        text-align: left;
+    }
+
+    .card-view li {
+        width: calc((100% - 2 rem) / 3);
+        box-sizing: border-box;
+    }
+}
