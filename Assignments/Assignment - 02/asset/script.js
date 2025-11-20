@@ -147,6 +147,8 @@ function checkWin() {
         winMsg.id = "winMessage";
         winMsg.textContent = "YOU WIN!!";
         document.body.appendChild(winMsg);
+        startGame();
+    
 
         setTimeout(() => {
             winMsg.remove();
