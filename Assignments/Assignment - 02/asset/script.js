@@ -9,35 +9,19 @@ let playerY = 0;
 const size = 7;
 let grid = [];
 
+const moveSound = new Audio("asset/audio/move.wav");
+const winSound = new Audio("asset/audio/win.wav");
+moveSound.preload = "auto";
+winSound.preload = "auto";
 
 function playMoveSound() {
-    try {
-        const a = new (window.AudioContext || window.webkitAudioContext)();
-        const o = a.createOscillator();
-        const g = a.createGain();
-        o.type = "square";
-        o.frequency.value = 300;
-        g.gain.value = 0.12;
-        o.connect(g);
-        g.connect(a.destination);
-        o.start();
-        o.stop(a.currentTime + 0.05);
-    } catch {}
+    moveSound.currentTime = 0; 
+    moveSound.play();
 }
 
 function playWinSound() {
-    try {
-        const a = new (window.AudioContext || window.webkitAudioContext)();
-        const o = a.createOscillator();
-        const g = a.createGain();
-        o.type = "sine";
-        o.frequency.value = 700;
-        g.gain.value = 0.22;
-        o.connect(g);
-        g.connect(a.destination);
-        o.start();
-        o.stop(a.currentTime + 0.25);
-    } catch {}
+    winSound.currentTime = 0;
+    winSound.play();
 }
 
 
@@ -159,7 +143,6 @@ function checkWin() {
         score++;
         document.getElementById("score").textContent = score;
 
-        
         const winMsg = document.createElement("div");
         winMsg.id = "winMessage";
         winMsg.textContent = "YOU WIN!!";
