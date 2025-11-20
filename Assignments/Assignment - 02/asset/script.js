@@ -9,22 +9,6 @@ let playerY = 0;
 const size = 7;
 let grid = [];
 
-const moveSound = new Audio("asset/audio/move.wav");
-const winSound = new Audio("asset/audio/win.wav");
-moveSound.preload = "auto";
-winSound.preload = "auto";
-
-function playMoveSound() {
-    moveSound.currentTime = 0; 
-    moveSound.play();
-}
-
-function playWinSound() {
-    winSound.currentTime = 0;
-    winSound.play();
-}
-
-
 function startGame() {
     board = document.getElementById("board");
     board.innerHTML = "";
@@ -136,6 +120,20 @@ document.addEventListener("keydown", function (e) {
     checkWin();
 });
 
+const moveSound = new Audio("asset/audio/move.wav");
+const winSound = new Audio("asset/audio/win.wav");
+moveSound.preload = "auto";
+winSound.preload = "auto";
+
+function playMoveSound() {
+    moveSound.currentTime = 0; 
+    moveSound.play();
+}
+
+function playWinSound() {
+    winSound.currentTime = 0;
+    winSound.play();
+}
 
 function checkWin() {
     if (playerX === size - 1 && playerY === size - 1) {

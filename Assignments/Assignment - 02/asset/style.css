@@ -60,12 +60,12 @@ select{
     box-sizing: border-box;
 }
 
-/*wall*/
+
 .wall{
     background: #b77f5d;
 }
 
-/*avatar*/
+
 #player {
     width: 90%;
     height: 90%;
@@ -76,7 +76,7 @@ select{
     animation: pulse 1s infinite;
 }
 
-/*Exit*/
+
 #exit {
     width: 80%;
     height: 80%;
