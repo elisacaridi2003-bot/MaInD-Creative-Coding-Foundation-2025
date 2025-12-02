@@ -13,9 +13,11 @@ The application must have those requirements:
 ## Project Description
 The Maze Escape is a 7×7 grid-based mini-game where the player must reach the exit while avoiding randomly generated walls. The player’s avatar is loaded through the Dog API, making each run unique. Movement uses the arrow keys with sound feedback. Reaching the exit triggers a victory sound, increases the score, and instantly generates a new, unpredictable maze.
 ## Screenshot
-<img src="asset/screenshots/Choose the avatar.png" width="540">
-<img src="asset/screenshots/Start the game.png" width="540">
-<img src="asset/screenshots/YOU WIN!.png" width="540">
+<img src="asset/screenshots/Home.png" width="540">
+<img src="asset/screenshots/Info.png" width="540">
+<img src="asset/screenshots/Api load.png" width="540">
+<img src="asset/screenshots/Game.png" width="540">
+<img src="asset/screenshots/You win.png" width="540">
 
 ## Flow Chart:
 ```mermaid
