@@ -1,0 +1,135 @@
+body {
+    font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+    background: #f3ebdd;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #4a3a2a;
+}
+
+nav {
+    background: #b77b52;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+nav button {
+    background: #8a5a3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+nav button:hover {
+    background: #6d4630;
+}
+nav button.active {
+    background: #4a3a2a;
+}
+
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
+}
+
+h1 {
+    margin-top: 25px;
+    font-size: 40px;
+}
+.controls {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+.selector {
+    margin: 15px 0;
+}
+
+button {
+    background: #b77b52;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+button:hover {
+    background: #96613f;
+}
+select{
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+#board {
+    width: 90%;
+    max-width: 420px;
+    height: 420px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.cell {
+    border: 1px solid #e0d6c3;
+    background: #fff6e8;
+    box-sizing: border-box;
+}
+.wall{
+    background: #b77f5d;
+}
+#player {
+    width: 90%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    position: absolute;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background-color: #ffb366;
+}
+#exit {
+    width: 80%;
+    height: 80%;
+    background: gold;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(255, 190, 0, 0.55);
+}
+
+.info-box, .settings-box {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    text-align: left;
+}
+.info-box h2 {
+    color: #b77b52;
+}
+.setting-item {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+}
+#apiMessage {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 600px){
+    #board { height: 280px; }
+}

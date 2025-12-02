@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Labyrinth - Escape</title>
+    <link rel="stylesheet" href="asset/style.css"/>
+</head>
+<body>
+
+    <nav>
+        <button class="nav-btn active" onclick="showSection('game')">🎮 Game</button>
+        <button class="nav-btn" onclick="showSection('info')">ℹ️ Info</button>
+        <button class="nav-btn" onclick="showSection('settings')">⚙️ Settings</button>
+    </nav>
+
+    <div id="game" class="section active">
+        <h1>Labyrinth - Escape</h1>
+        <p class="controls">Controls: use arrows ↑ ↓ ← → to move</p>
+        
+        <div>
+            <button id="startBtn" onclick="startGame()">Start the game</button>
+        </div>
+
+        <h2>Score: <span id="score">0</span></h2>
+        <div id="board"></div>
+    </div>
+
+    <div id="info" class="section">
+        <h1>📖 Game Info</h1>
+        <div class="info-box">
+            <h2>How to Play</h2>
+            <p>Your goal is to reach the golden exit by moving through the labyrinth!</p>
+            <ul>
+                <li>Use the **arrow keys** on your keyboard to move (↑ ↓ ← →)</li>
+                <li>Avoid the **brown walls** (you cannot pass through them)</li>
+                <li>Reach the **golden circle** to win!</li>
+                <li>Every victory increases your score.</li>
+            </ul>
+            <h2>Features</h2>
+            <p>Your avatar is a random **dog** image loaded from the web using the "Dog API". 🐶</p>
+        </div>
+    </div>
+
+    <div id="settings" class="section">
+        <h1>⚙️ Settings</h1>
+        <div class="settings-box">
+            <div class="setting-item">
+                <h3>🐶 Load Random Avatar (API)</h3>
+                <p>Click to change your dog avatar before starting the game.</p>
+                <button onclick="loadRandomAvatar()">🎲 Load a New Dog</button>
+                <p id="apiMessage">Load the image before starting!</p>
+            </div>
+            <div class="setting-item">
+                <h3>📊 Current Score</h3>
+                <p id="currentScore">0</p>
+                <button onclick="resetScore()">Reset Score</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="asset/script.js"></script>
+</body>
+</html>
