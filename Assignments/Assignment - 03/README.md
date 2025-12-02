@@ -62,32 +62,45 @@ flowchart TB
 ## Function list:
 ### function showSection(sectionName)
 Updates the UI by showing the selected section (Game, Info, or Settings) and highlighting the corresponding navigation button. When switching to the Settings section, it also updates the score display.
+
 ### function loadRandomAvatar() (async)
 Fetches a random dog image from the Dog API.
 If successful, it sets the image as the player's avatar and updates the settings message. If the player is already created, its background updates in real time.
+
 ### function resetScore()
 Resets the score to zero and updates both score displays (in the game and in the settings section). Shows a confirmation alert.
+
 ### function startGame()
 Initializes or restarts the game board: clears the board, sets the grid layout, displays the current score, generates a new random maze, places the player and the exit. 
+
 ### function generateGrid()
 Creates the 7×7 maze grid. Each cell has a 25% chance to become a wall, except for the start (0,0) and the exit (6,6). Walls are stored in a logical grid array (1 = wall, 0 = free) and also visually rendered.
+
 ### function placePlayer()
 Creates the player element, assigns the current avatar image, places the player at position (0,0), and updates its visual position with updatePlayerPosition().
+
 ### function updatePlayerPosition()
 Updates the player’s size and coordinates inside the board based on the current window size. This ensures the avatar scales correctly and moves smoothly to the correct cell.
+
 ### function placeExit()
 Creates the exit element and positions it on the board, then calls updateExitPosition() to align it visually.
+
 ### function updateExitPosition()
 Aligns the exit element inside the final cell (bottom-right of the board), scaling it based on the board size.
+
 ### function Movement Event Listener (document.addEventListener("keydown", ...))
 The keyboard event (e).
 Handles player movement using arrow keys. It calculates the next position and checks: boundary limits, wall collision. If the move is valid, the position updates and checkWin() is called.
+
 ### function checkWin()
 Checks if the player has reached the exit cell (6,6).
 If yes: increases the score, updates the score display, shows a victory alert, restarts the game after a short delay.
+
 ### function  loadRandomAvatar(); (initial call)
 Runs automatically when the page loads to assign a first random avatar.
 
+## Api documentation: Pick random image for the avatar
+https://dog.ceo/dog-api/documentation/random
 
 
 
@@ -108,78 +121,3 @@ Runs automatically when the page loads to assign a first random avatar.
 
 
 
-
-
-### function generateGrid()
-Purpose: Create the visual cells and generate the internal grid data.
-Process:
-Reset the grid array.
-Loop through every row (y) and column (x).
-Create a <div> for each cell and add the cell class.
-Randomly decide if the cell is a wall (25% chance).
-Force start (0,0) and end (6,6) to stay free.
-Add class "wall" and push 1 in grid if it is a wall, otherwise push 0.
-Append each cell to the board.
-
-### function placePlayer()
-Purpose: Create and position the player character.
-Steps:
-Create a <div> with id "player".
-Set its content to the selected avatar (#avatarPicker value).
-Append it to the board.
-Set player coordinates to (0,0).
-Call updatePlayerPosition() to place it visually.
-Because startGame() clears the board, this function safely creates a new player every time.
-
-### function updatePlayerPosition()
-Purpose: Convert grid coordinates into pixel positions and size.
-What it does:
-Compute the pixel size of a cell.
-Set the player's width and height.
-Use left and top CSS values to place the player.
-If the window or board size changes, the player’s position will not automatically update unless you call this function again (for example on a window resize event).
-
-### function placeExit() and function updateExitPosition()
-Purpose: Create and visually position the exit tile.
-placeExit():
-Creates the exit <div id="exit">.
-Appends it to the board.
-Calls updateExitPosition().
-updateExitPosition():
-Computes exit size and position.
-Places it at (size-1, size-1) → bottom-right corner.
-
-### Keyboard Listener: document.addEventListener("keydown", ...)
-Purpose: Handle player movement.
-Behavior:
-Ignore input if the board isn’t ready.
-Make a temporary copy of the player's coordinates.
-Update the temp coordinates depending on the arrow key pressed.
-Validate movement:
-reject moves outside the board,
-reject moves into walls.
-If valid:
-update playerX, playerY,
-call updatePlayerPosition() to move the player,
-play movement sound,
-call checkWin() to check if the exit is reached.
-Holding down arrow keys triggers repeated movement (browser default).
-You may add e.preventDefault() to avoid scrolling.
-
-### function playMoveSound() and playWinSound()
-Purpose: Play the movement and victory sounds.
-Behavior:
-Reset the audio to the beginning (currentTime = 0).
-Play the sound.
-
-### function checkWin()
-Purpose: Determine if the player reached the exit and trigger a level restart.
-When the player reaches (size-1, size-1):
-Play the win sound.
-Increase the score.
-Update the on-screen score.
-Create a "YOU WIN!!" message and add it to the document body.
-Call startGame() immediately.
-Also set a timeout:
-remove win message after 1 second,
-call startGame() again.
