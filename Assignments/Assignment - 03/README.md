@@ -60,18 +60,55 @@ flowchart TB
     n15 --> n2
 ```
 ## Function list:
+### function showSection(sectionName)
+Updates the UI by showing the selected section (Game, Info, or Settings) and highlighting the corresponding navigation button. When switching to the Settings section, it also updates the score display.
+### function loadRandomAvatar() (async)
+Fetches a random dog image from the Dog API.
+If successful, it sets the image as the player's avatar and updates the settings message. If the player is already created, its background updates in real time.
+### function resetScore()
+Resets the score to zero and updates both score displays (in the game and in the settings section). Shows a confirmation alert.
 ### function startGame()
-Purpose: Initialize the game or restart it after a win.
-What it does:
-Gets the board DOM element. Clears the board content.
-Sets CSS grid layout to 7×7.
-Displays the current score.
-Calls:
-generateGrid() to create the maze layout.
-placePlayer() to place the player at (0,0).
-placeExit() to place the exit at (6,6).
-This function resets the maze but does not reset the score.
-It completely recreates the board each time.
+Initializes or restarts the game board: clears the board, sets the grid layout, displays the current score, generates a new random maze, places the player and the exit. 
+### function generateGrid()
+Creates the 7×7 maze grid. Each cell has a 25% chance to become a wall, except for the start (0,0) and the exit (6,6). Walls are stored in a logical grid array (1 = wall, 0 = free) and also visually rendered.
+### function placePlayer()
+Creates the player element, assigns the current avatar image, places the player at position (0,0), and updates its visual position with updatePlayerPosition().
+### function updatePlayerPosition()
+Updates the player’s size and coordinates inside the board based on the current window size. This ensures the avatar scales correctly and moves smoothly to the correct cell.
+### function placeExit()
+Creates the exit element and positions it on the board, then calls updateExitPosition() to align it visually.
+### function updateExitPosition()
+Aligns the exit element inside the final cell (bottom-right of the board), scaling it based on the board size.
+### function Movement Event Listener (document.addEventListener("keydown", ...))
+The keyboard event (e).
+Handles player movement using arrow keys. It calculates the next position and checks: boundary limits, wall collision. If the move is valid, the position updates and checkWin() is called.
+### function checkWin()
+Checks if the player has reached the exit cell (6,6).
+If yes: increases the score, updates the score display, shows a victory alert, restarts the game after a short delay.
+### function  loadRandomAvatar(); (initial call)
+Runs automatically when the page loads to assign a first random avatar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### function generateGrid()
 Purpose: Create the visual cells and generate the internal grid data.
@@ -146,4 +183,3 @@ Call startGame() immediately.
 Also set a timeout:
 remove win message after 1 second,
 call startGame() again.
->>>>>>> 9d514da115b8e70d43c4550617edfeb550267004
