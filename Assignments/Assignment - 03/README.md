@@ -99,7 +99,8 @@ If yes: increases the score, updates the score display, shows a victory alert, r
 ### function  loadRandomAvatar(); (initial call)
 Runs automatically when the page loads to assign a first random avatar.
 
-## Api documentation: Pick random image for the avatar
+## Api documentation: 
+Takes random images of dogs for the avatar
 https://dog.ceo/dog-api/documentation/random
 
 
