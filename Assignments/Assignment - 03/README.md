@@ -22,23 +22,42 @@ The Maze Escape is a 7×7 grid-based mini-game where the player must reach the e
 ## Flow Chart:
 ```mermaid
 flowchart TB
-    n1["Start"] --> n2["startGame()"]
-    n2 --> n3["generateGrid()"]
-    n3 --> n4["placePlayer()"]
-    n4 --> n5["placeExit()"]
+    start["Page Load"] --> loadAPI["loadRandomAvatar()"]
+    loadAPI --> waitStart["Wait for user"]
+    waitStart --> nav{"User clicks<br>navigation?"}
+    nav -- Game --> gameSection@{ label: "showSection('game')" }
+    nav -- Info --> infoSection@{ label: "showSection('info')" }
+    nav -- Settings --> settingsSection@{ label: "showSection('settings')" }
+    settingsSection --> settingsOpt{"User action<br>in settings?"}
+    settingsOpt -- Load New Dog --> loadAPI
+    settingsOpt -- Reset Score --> resetScore["resetScore()<br>score = 0"]
+    resetScore --> waitStart
+    settingsOpt -- Back to nav --> nav
+    infoSection --> nav
+    gameSection --> waitGameStart["Wait for Start button"]
+    waitGameStart --> startBtn{"Start button<br>clicked?"}
+    startBtn -- no --> waitGameStart
+    startBtn -- yes --> n2["startGame()"]
+    n2 --> n3["generateGrid()<br>Create 7x7 grid<br>Random walls (25%)"]
+    n3 --> n4["placePlayer()<br>at (0,0)<br>with dog avatar"]
+    n4 --> n5["placeExit()<br>at (6,6)<br>golden circle"]
     n5 --> n6["Wait for keydown event"]
-    n6 --> n7{"Arrow key<br>pressed?"}
+    n6 --> gameActive{"Game section<br>active?"}
+    gameActive -- no --> n6
+    gameActive -- yes --> n7{"Arrow key<br>pressed?"}
     n7 -- no --> n6
-    n7 -- yes --> n8["Calculate newX, newY"]
-    n8 --> n9{"Out of<br>bounds?"}
+    n7 -- yes --> n8["Calculate newX, newY<br>based on arrow key"]
+    n8 --> n9{"Out of<br>bounds?<br>(x,y &lt; 0 or ≥ 7)"}
     n9 -- yes --> n6
-    n9 -- no --> n10{"Is it a<br>wall?"}
+    n9 -- no --> n10{"Is grid[newY][newX]<br>a wall?"}
     n10 -- yes --> n6
     n10 -- no --> n11["playerX = newX<br>playerY = newY"]
-    n11 --> n12["updatePlayerPosition()"]
-    n12 --> n13{"Reached<br>exit?"}
+    n11 --> n12["updatePlayerPosition()<br>Move player visually"]
+    n12 --> n13{"Reached exit?<br>(x=6 &amp;&amp; y=6)"}
     n13 -- no --> n6
-    n13 -- yes --> n14["score++"]
+    n13 -- yes --> n14["score++<br>Update display<br>Show alert 🎉"]
+    n14 --> n15["Wait 500ms"]
+    n15 --> n2
 ```
 ## Function list:
 ### function startGame()
