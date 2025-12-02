@@ -1,57 +1,17 @@
-<<<<<<< HEAD
+
 # Github repository
-Assignments - 01 
-## Brief:
-Starting from the concept of a pinboard, implement a web page that:
-- is responsive (properly layout for smartphone, tablet, and desktop)
-- allows the user to add and remove elements
-- allows the user to coustomize elements (i.e. colors, size)
-- allows the switch between two views (at least)
-
-## Screenshot
-### Grid View
-<img src="screenshot/grid_view.png" width="1080">
-
-### List View
-<img src="screenshot/list_view.png" width="1080">
-
-### Project Description
-My project is a bulletin board where you write post-it notes or reminders. You can choose between three post-it sizes: small, medium and large, you can choose the color. The text inside is formatted according to the choice of version. You can put and remove post-it notes and decide to change from a grid view or a list view.
-
-## Functions:
-
-#### Choose color: 
-It allows the user to change the color of the post-it by clicking a button that opens a colorimeter spectrum.
-
-#### Change size: 
-Allows the user to choose the post-it size between small, medium or large.
-
-#### Add: 
-After choosing size and color, by pressing add, the post-it will appear on the bulletin board.
-
-#### Remove: 
-By clicking on the red button at the top right of the post-it note, this will be removed from the bulletin board.
-
-#### Switch View: 
-By clicking on switch view the user can choose whether to use a grid view or a list view.
-=======
+Assignments - 03
 # Labyrinth - Escape
-Assignments - 02
+Assignments - 03
 ## Brief:
-Choose a “mini-game” to rebuild with HTML, CSS and JavaScript. The requirements are:
-- The webpage should be responsive
-- Choose an avatar at the beginning of the game
-- Keep track of the score of the player
-- Use the keyboard to control the game (indicate what are the controls in the page). You can also use buttons (mouse), but also keyboard.
-- Use some multimedia files (audio, video, …)
-- Implement an “automatic restart” in the game (that is not done via the refresh of the page)
+Upgrade the Assignment 02 by adding the use of data coming from an external web API. For example, fetch contents (audio, images, video, text, metadata) from online archives, AI generated contents (chatGPT API), data (weather, realtime traffic data, environmental data).
+The application must have those requirements:
+- The webpage is responsive
+- Use a web API (you choose which one best fists for your project) to load the data and display them in the webpage
+- At least one multimedia file (for user feedback interactions, or content itself)
+- Develop a navigation system that allows the user to navigate different sections with related content and functionalities
 ## Project Description
-The Maze Escape mini-game is inspired by classic grid-based labyrinth challenges, where the player must navigate through a randomly generated maze and reach a designated exit point. The labyrinth is created from a 7×7 grid made of empty spaces and solid walls that block the player’s path. At each new attempt, the configuration of the maze changes, so the player never faces the same layout twice.
-In this project, the player controls an avatar that can be moved using the keyboard arrow keys.
-Each press of an arrow key moves the character by one cell in the corresponding direction, as long as the move does not collide with a wall or leave the boundaries of the grid. Every movement also plays a short sound effect, providing responsive feedback to the player's actions.
-The goal is to reach the exit positioned at the bottom-right corner of the grid.
-If the player successfully reaches the exit, a victory sound plays, the score increases by one, and a new maze is immediately generated, placing the player again at the starting point for a fresh attempt.
-Because the maze layout is randomized every time, the player cannot predict the correct path in advance and must adapt to the changing structure of the labyrinth.
+The Maze Escape is a 7×7 grid-based mini-game where the player must reach the exit while avoiding randomly generated walls. The player’s avatar is loaded through the Dog API, making each run unique. Movement uses the arrow keys with sound feedback. Reaching the exit triggers a victory sound, increases the score, and instantly generates a new, unpredictable maze.
 ## Screenshot
 <img src="asset/screenshots/Choose the avatar.png" width="540">
 <img src="asset/screenshots/Start the game.png" width="540">
