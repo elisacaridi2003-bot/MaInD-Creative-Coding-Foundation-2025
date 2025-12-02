@@ -55,7 +55,7 @@ flowchart TB
     n11 --> n12["updatePlayerPosition()<br>Move player visually"]
     n12 --> n13{"Reached exit?<br>(x=6 &amp;&amp; y=6)"}
     n13 -- no --> n6
-    n13 -- yes --> n14["score++<br>Update display<br>Show alert 🎉"]
+    n13 -- yes --> n14["score++<br>Update display<br>Show alert "]
     n14 --> n15["Wait 500ms"]
     n15 --> n2
 ```
